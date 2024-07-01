@@ -1,3 +1,6 @@
+import os
+import glob
+
 from tools import catch_error
 from tools.hackmd import (get_note_list_data, 
                         write_note_list_data,
@@ -6,6 +9,25 @@ from tools.hackmd import (get_note_list_data,
                         set_note_data,
                         isPrivate,
                         check_notes_id_exist)
+
+
+
+
+
+def clear_json_files(folder_path):
+    """
+    清除指定資料夾內的所有 *.json 檔案
+
+    :param folder_path: 資料夾的路徑
+    """
+    json_files = glob.glob(os.path.join(folder_path, '*.json'))
+    
+    for file_path in json_files:
+        try:
+            os.remove(file_path)
+            print(f'Delete file success: {file_path}')
+        except Exception as e:
+            print(f'Delete file error: {file_path}: {e}')
 
 @catch_error
 def get_notes_list(hackmd_api_instance) -> list | None:

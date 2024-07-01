@@ -13,7 +13,7 @@ from langchain.schema.document import Document
 
 from tools.lib import *
 from tools.prompt_lib import RAG_SYSTEM_PROMPT, RAG_USER_PROMPT, CHOSEN_TAGS_PROMPT
-from tools.data import get_notes_list, get_notes_content_by_tag
+from tools.data import get_notes_list, get_notes_content_by_tag, clear_json_files
 from tools.get_result import get_json_result
 from tools import format_docs, convert_str_to_xml, catch_error
 
@@ -25,6 +25,13 @@ router = APIRouter(prefix="/api/v1", tags=['v1'])
 def ping():
     return JSONResponse(content={"result": "alive"}, status_code=200)
 
+@router.delete("/data_reset")
+def delete_data():
+    data_folder_list = ['db/', 'notes/']
+    for data_folder in data_folder_list:
+        clear_json_files(data_folder)
+
+    return JSONResponse(content={"result": "data reset"}, status_code=200)
 
 @api_catch_error
 @router.post("/rag_generate")

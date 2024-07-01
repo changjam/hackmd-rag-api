@@ -28,6 +28,11 @@ curl -X 'GET' \
   'http://localhost:8000/api/v1/ping' \
   -H 'accept: application/json'
 
+# data_reset
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/api/v1/data_reset' \
+  -H 'accept: application/json'
+
 # rag_generate
 curl -X 'POST' \
   'http://localhost:8000/api/v1/rag_generate' \
@@ -46,6 +51,11 @@ curl -X 'POST' \
 # ping
 {
   "result": "alive"
+}
+
+# data_reset
+{
+  "result": "data reset"
 }
 
 # rag_generate
