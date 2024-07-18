@@ -1,6 +1,10 @@
 # hackmd-rag-api
 > Connected with hackMD API, a simple chat bot for hackMD.
 
+## WebUI
+You can build a chatbot with [webUI](https://github.com/samfunmula/HackMD_RAG) project.
+
+![webUI](./img/webUI.png)
 
 ## Setup
 * [Get Your HackMD token](https://hackmd.io/@hackmd-api/developer-portal/https%3A%2F%2Fhackmd.io%2F%40hackmd-api%2FrkoVeBXkq)
